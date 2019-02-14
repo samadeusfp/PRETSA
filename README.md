@@ -22,6 +22,10 @@ cutOutCases = pretsa.runPretsa(k,t)
 ```
 Note that the privacy constraint k-anonymity gets stronger with a higher value, while t-closeness can have values between 1.0 and 0.0 with the lowest value giving the strongest privacy guarantee.
 
+Finally we can return our privatizied event log as a pandas dataframe:
+```
+privateEventLog = pretsa.getPrivatisedEventLog()
+```
 
 ## How to repeat our experiments
 
