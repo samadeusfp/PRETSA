@@ -51,6 +51,12 @@ Next by running the script *runPretsa.py* we generated the event log's generated
 ```
 python runPretsa.py <fileName> <k> <t>
 ```
+To generate privatizied event logs with our baseline approach we run the script *generate_baseline_log.py*:
+```
+python generate_baseline_log.py <fileName> <k> <t>
+```
+
+
 
 ## How to contact us
 PRETSA was developed at the Process-driven Architecture group of Humboldt-Universität zu Berlin. For contact information see the following website:
