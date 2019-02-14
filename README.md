@@ -40,6 +40,11 @@ If you want to use different attribute column names you can change the following
 
 ## How to repeat our experiments
 
+By running the script *runPretsa.py* it is possible to run the PRETSA algorithm on an event log with choosen parameters for *k* and *t*:
+```
+python runPretsa.py <fileName> <k> <t>
+```
+
 ## How to contact us
 PRETSA was developed at the Process-driven Architecture group of Humbodlt-Universität of Berlin. For contact information see the following website:
 https://www.informatik.hu-berlin.de/de/forschung/gebiete/pda
