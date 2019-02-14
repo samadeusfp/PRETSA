@@ -7,6 +7,7 @@ To run our algorithm you need the following Python packages:
 - SciPy (https://www.scipy.org)
 - NumPy (http://www.numpy.org)
 - AnyNode (https://anytree.readthedocs.io/en/latest/)
+
 We did run our algorithm only with Python 3.
 
 ## How to run PRETSA
