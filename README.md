@@ -14,8 +14,13 @@ We did run our algorithm only with Python 3.
 The algorithm PRETSA itself is implemented in the file *pretsa.py*. To run the algorithm you first have to initiate the *Pretsa* class and hand over an event log represented as a pandas dataframe:
 ```
 eventLog = pd.read_csv(filePath, delimiter=";")
-pretsa = Pretsa(eventLog
+pretsa = Pretsa(eventLog)
 ```
+As a next step you run the PRETSA algorithm with your choosen k-anonymity and t-closesness parameter. The algorithm then returns the cases that have been modified:
+```
+cutOutCases = pretsa.runPretsa(k,t)
+```
+
 
 ## How to repeat our experiments
 
