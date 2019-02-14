@@ -56,6 +56,10 @@ To generate privatizied event logs with our baseline approach we run the script 
 python generate_baseline_log.py <fileName> <k> <t>
 ```
 
+To compare the fitness and precision of the event logs we used ProM. The calculate the statistcs of event logs( e.g. number of variants in the log) we run the script *calculateDatasetStatistics.py*:
+```
+python calculateDatasetStatustics.py <fileName>
+```
 
 
 ## How to contact us
