@@ -28,6 +28,16 @@ Finally we can return our privatizied event log as a pandas dataframe:
 privateEventLog = pretsa.getPrivatisedEventLog()
 ```
 
+Please consider that your original event log must contain at least the following attributes(column names), so that PRETSA can process it:
+- Case Id
+- Activity
+- Duration
+
+If you want to use different attribute column names you can change the following variables in *pretsa.py*:
+- caseIDColName
+- activityColName
+- annotationColName
+
 ## How to repeat our experiments
 
 ## How to contact us
