@@ -63,6 +63,21 @@ python calculatBaselineEventLogStatistics.py <dictName>
 python calculatePRETSAEventLogStatistics.py <dictName>
 ```
 
+To calculate the annotation error we did the scripts *calculateAnnotationsEventLog_baseline.py* and *calculateAnnotationsEventLog_pretsa.py* to calculate the average annotation for the privatizied event logs:
+```
+python calculateAnnotationsEventLog_baseline.py <dictName>
+python calculateAnnotationsEventLog_pretsa.py <dictName>
+```
+
+With *generateAnnotationOriginalDataset.py* we generate the statistics of the original event logs:
+```
+python generateAnnotationOriginalDataset.py <dictName>
+```
+
+Finally we run *calculateAnnotationError.py* to calculate the relative error of the annotations for each activity:
+```
+python calculateAnnotationError.py <dictName>
+```
 
 ## How to contact us
 PRETSA was developed at the Process-driven Architecture group of Humboldt-Universität zu Berlin. For contact information see the following website:
