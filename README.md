@@ -11,6 +11,12 @@ We did run our algorithm only with Python 3.
 
 ## How to run PRETSA
 
+The algorithm PRETSA itself is implemented in the file *pretsa.py*. To run the algorithm you first have to initiate the *Pretsa* class and hand over an event log represented as a pandas dataframe:
+```
+eventLog = pd.read_csv(filePath, delimiter=";")
+pretsa = Pretsa(eventLog
+```
+
 ## How to repeat our experiments
 
 ## How to contact us
