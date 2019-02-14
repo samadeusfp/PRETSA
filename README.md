@@ -16,10 +16,11 @@ The algorithm PRETSA itself is implemented in the file *pretsa.py*. To run the a
 eventLog = pd.read_csv(filePath, delimiter=";")
 pretsa = Pretsa(eventLog)
 ```
-As a next step you run the PRETSA algorithm with your choosen k-anonymity and t-closesness parameter. The algorithm then returns the cases that have been modified:
+As a next step you run the PRETSA algorithm with your choosen k-anonymity(an integer) and t-closesness(a float) parameter. The algorithm then returns the cases that have been modified:
 ```
 cutOutCases = pretsa.runPretsa(k,t)
 ```
+Note that the privacy constraint k-anonymity gets stronger with a higher value, while t-closeness can have values between 1.0 and 0.0 with the lowest value giving the strongest privacy guarantee.
 
 
 ## How to repeat our experiments
