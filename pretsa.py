@@ -2,7 +2,9 @@ from anytree import AnyNode, PreOrderIter
 from levenshtein import levenshtein
 import sys
 from scipy.stats import wasserstein_distance
+from scipy.stats import normaltest
 import pandas as pd
+import numpy as np
 
 class Pretsa:
     def __init__(self,eventLog):
@@ -16,6 +18,7 @@ class Pretsa:
         self.annotationColName = "Duration"
         self.constantEventNr = "Event_Nr"
         self.annotationDataOverAll = dict()
+        self.normaltest_alpha = 0.05
 
         for index, row in eventLog.iterrows():
             activity = row[self.activityColName]
@@ -38,31 +41,31 @@ class Pretsa:
                 current = node
             current.cases.add(currentCase)
             current.annotations[currentCase] = annotation
-            self.addAnnotation(annotation,activity)
+            self.__addAnnotation(annotation, activity)
         #Handle last case
         traceToSequenceDict[currentCase] = sequence
         self.tree = root
         self.traceToSequenceDict = traceToSequenceDict
         self.numberOfTracesOriginal = len(self.tree.cases)
         self.sequentialPrunning = True
-        self.setMaxDifferences()
+        self.__setMaxDifferences()
 
 
-    def addAnnotation(self,annotation,activity):
+    def __addAnnotation(self, annotation, activity):
         dataForActivity = self.annotationDataOverAll.get(activity,None)
         if dataForActivity is None:
             self.annotationDataOverAll[activity] = []
             dataForActivity = self.annotationDataOverAll[activity]
         dataForActivity.append(annotation)
 
-    def setMaxDifferences(self):
+    def __setMaxDifferences(self):
         self.annotationMaxDifferences = dict()
         for key in self.annotationDataOverAll.keys():
             maxVal = max(self.annotationDataOverAll[key])
             minVal = min(self.annotationDataOverAll[key])
             self.annotationMaxDifferences[key] = abs(maxVal - minVal)
 
-    def violatesTCloseness(self, activity, annotations, t, cases):
+    def __violatesTCloseness(self, activity, annotations, t, cases):
         distributionActivity = self.annotationDataOverAll[activity]
         maxDifference = self.annotationMaxDifferences[activity]
         #Consider only data from cases still in node
@@ -79,12 +82,12 @@ class Pretsa:
         else:
             return False
 
-    def treePrunning(self, k,t):
+    def __treePrunning(self, k,t):
         cutOutTraces = set()
         for node in PreOrderIter(self.tree):
             if node != self.tree:
                 node.cases = node.cases.difference(cutOutTraces)
-                if len(node.cases) < k or self.violatesTCloseness(node.name, node.annotations, t, node.cases):
+                if len(node.cases) < k or self.__violatesTCloseness(node.name, node.annotations, t, node.cases):
                     cutOutTraces = cutOutTraces.union(node.cases)
                     current = node.parent
                     node.parent = None
@@ -95,18 +98,18 @@ class Pretsa:
                         break
         return cutOutTraces
 
-    def getAllPotentialSequencesTree(self,tree, sequence):
+    def __getAllPotentialSequencesTree(self,tree, sequence):
         sequences = set()
         sumCasesChildren = 0
         for child in tree.children:
             sumCasesChildren = sumCasesChildren + len(child.cases)
             childSequence = sequence + "@" + child.name
-            sequences = sequences.union(self.getAllPotentialSequencesTree(child, childSequence))
+            sequences = sequences.union(self.__getAllPotentialSequencesTree(child, childSequence))
         if len(tree.cases) > sumCasesChildren or sumCasesChildren == 0:
             sequences.add(sequence)
         return sequences
 
-    def addCaseToTree(self, trace, sequence):
+    def __addCaseToTree(self, trace, sequence):
         if trace != "":
             activities = sequence.split("@")
             currentNode = self.tree
@@ -118,9 +121,9 @@ class Pretsa:
                         currentNode = child
                         break
 
-    def combineTracesAndTree(self, traces):
+    def __combineTracesAndTree(self, traces):
         #We transform the set of sequences into a list and sort it, to discretize the behaviour of the algorithm
-        sequencesTree = list(self.getAllPotentialSequencesTree(self.tree,""))
+        sequencesTree = list(self.__getAllPotentialSequencesTree(self.tree,""))
         sequencesTree.sort()
         for trace in traces:
             bestSequence = ""
@@ -131,21 +134,35 @@ class Pretsa:
                 if currentDistance < lowestDistance:
                     bestSequence = treeSequence
                     lowestDistance = currentDistance
-            self.addCaseToTree(trace, bestSequence)
+            self.__addCaseToTree(trace, bestSequence)
 
 
     def runPretsa(self,k,t):
         if self.sequentialPrunning:
             cutOutCases = set()
-            cutOutCase = self.treePrunning(k,t)
+            cutOutCase = self.__treePrunning(k,t)
             while len(cutOutCase) > 0:
-                self.combineTracesAndTree(cutOutCase)
+                self.__combineTracesAndTree(cutOutCase)
                 cutOutCases = cutOutCases.union(cutOutCase)
-                cutOutCase = self.treePrunning(k,t)
+                cutOutCase = self.__treePrunning(k,t)
         else:
-            cutOutCases = self.treePrunning(k,t)
-            self.combineTracesAndTree(cutOutCases)
+            cutOutCases = self.__treePrunning(k,t)
+            self.__combineTracesAndTree(cutOutCases)
         return cutOutCases
+
+    def __generateNewAnnotation(self, activity):
+        #normaltest works only with more than 8 samples
+        if(len(self.annotationDataOverAll[activity])) >=8:
+            stat, p = normaltest(self.annotationDataOverAll[activity])
+        else:
+            p = 1.0
+        if p <= self.normaltest_alpha:
+            mean = np.mean(self.annotationDataOverAll[activity])
+            std = np.std(self.annotationDataOverAll[activity])
+            randomValue = np.random.normal(mean, std)
+        else:
+            randomValue = np.random.choice(self.annotationDataOverAll[activity])
+        return randomValue
 
     def getPrivatisedEventLog(self):
         eventLog = pd.DataFrame()
@@ -156,7 +173,7 @@ class Pretsa:
                     event = dict()
                     event[self.activityColName] = node.name
                     event[self.caseIDColName] = case
-                    event[self.annotationColName] = node.annotations.get(case,-1.0)
+                    event[self.annotationColName] = node.annotations.get(case,self.__generateNewAnnotation(node.name))
                     event[self.constantEventNr] = node.depth
                     events.append(event)
         eventLog = pd.DataFrame(events)
