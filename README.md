@@ -4,7 +4,7 @@ PRETSA (PREfix-Tree based event log SAnitisation for t-closeness) is an algorith
 @ARTICLE {pretsaICPM2019,
     author  = "Stephan A. Fahrenkrog-Petersen and Han van der Aa and Matthias Weidlich",
     title   = "PRETSA: Event Log Sanitization for Privacy-aware Process Discovery",
-    journal = "1st IEEE International Conference of Process Mining",
+    journal = "1st IEEE International Conference on Process Mining",
     year    = "2019"
 }
 ```
