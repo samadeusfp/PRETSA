@@ -8,6 +8,8 @@ PRETSA (PREfix-Tree based event log SAnitisation for t-closeness) is an algorith
     year    = "2019"
 }
 ```
+You can access the corresponding research paper here:
+https://www.researchgate.net/publication/332173989_PRETSA_Event_Log_Sanitization_for_Privacy-aware_Process_Discovery
 
 
 ## Requirements
