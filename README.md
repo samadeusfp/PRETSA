@@ -91,4 +91,4 @@ python calculateAnnotationError.py <dictName>
 ```
 
 ## How to contact us
-PRETSA was developed at the Process-driven Architecture group of Humboldt-Universität zu Berlin. If you want to contact us, just send us a mail at: Stephan.Fahrenkrog-Petersen || hu-berlin.de
+PRETSA was developed at the Process-driven Architecture group of Humboldt-Universität zu Berlin. If you want to contact us, just send us a mail at: fahrenks || hu-berlin.de
