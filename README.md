@@ -1,11 +1,21 @@
 # PRETSA
 PRETSA (PREfix-Tree based event log SAnitisation for t-closeness) is an algorithm to generate privatizied event logs that comply with k-anonymity and t-closeness. These event logs can be used for process discovery a subfield of Process Mining. We provide an implementation of PRETSA in Python 3. Our code is available under the MIT license. If you use it for academic purposes please cite our paper:
 ```
-@inproceedings{pretsaICPM2019,
-    author  = "Stephan A. Fahrenkrog-Petersen and Han van der Aa and Matthias Weidlich",
-    title   = "PRETSA: Event Log Sanitization for Privacy-aware Process Discovery",
-    Booktitle = "1st International Conference on Process Mining",
-    year    = "2019"
+@inproceedings{DBLP:conf/icpm/Fahrenkrog-Petersen19,
+  author    = {Stephan A. Fahrenkrog{-}Petersen and
+               Han van der Aa and
+               Matthias Weidlich},
+  title     = {{PRETSA:} Event Log Sanitization for Privacy-aware Process Discovery},
+  booktitle = {International Conference on Process Mining, {ICPM} 2019, Aachen, Germany,
+               June 24-26, 2019},
+  pages     = {1--8},
+  year      = {2019},
+  crossref  = {DBLP:conf/icpm/2019},
+  url       = {https://doi.org/10.1109/ICPM.2019.00012},
+  doi       = {10.1109/ICPM.2019.00012},
+  timestamp = {Mon, 12 Aug 2019 11:00:01 +0200},
+  biburl    = {https://dblp.org/rec/bib/conf/icpm/Fahrenkrog-Petersen19},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
 }
 ```
 You can access the corresponding research paper here:
