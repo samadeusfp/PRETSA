@@ -99,6 +99,11 @@ Finally we run *calculateAnnotationError.py* to calculate the relative error of 
 ```
 python calculateAnnotationError.py <dictName>
 ```
+# PRETSA*/BF-PRETSA
+Furthermore this repository contains the implementation of improved versions of the PRETSA-algorithm currently under reviews as a journal extension. These algorithms are namely:
+- PRETSA* -> An algorithm that guarantees optimal event log sanitazation through application of A*-search
+- BF-PRETSA -> An algorithm using best-first search
+
 
 ## How to contact us
 PRETSA was developed at the Process-driven Architecture group of Humboldt-Universität zu Berlin. If you want to contact us, just send us a mail at: fahrenks || hu-berlin.de
