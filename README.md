@@ -104,7 +104,14 @@ python calculateAnnotationError.py <dictName>
 Furthermore this repository contains the implementation of improved versions of the PRETSA-algorithm currently under reviews as a journal extension. These algorithms are namely:
 - PRETSA* -> An algorithm that guarantees optimal event log sanitazation through application of A*-search
 - BF-PRETSA -> An algorithm using best-first search
+- 
+## How to repeat our experiments
 
-
+We will describe in this section how we conducted our experiments for our journal extension:
+```
+python startExperimentsForJournalExtension_<algorithmName>.py <filePath>
+```
+That the parallel execution of all anonymization settings for the algorithm specified in <algorithmName>. Please note, that this starts 25 processes at the same time. All of them potentially need intensive computional resources. Therefore, we recommend only executing these scripts on a powerful server.
+  
 ## How to contact us
 PRETSA was developed at the Process-driven Architecture group of Humboldt-Universität zu Berlin. If you want to contact us, just send us a mail at: fahrenks || hu-berlin.de
