@@ -5,7 +5,7 @@ import pandas as pd
 
 dirPath = sys.argv[1]
 dataset = sys.argv[2]
-resultFilePath = sys.argv[3]
+resultFilePath = os.path.join(dirPath, dataset + "_runtime_results.csv")
 
 df = pd.DataFrame()
 t = 1.0
