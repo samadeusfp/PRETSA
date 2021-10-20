@@ -112,7 +112,11 @@ We will describe in this section how we conducted our experiments for our journa
 python startExperimentsForJournalExtension_<algorithmName>.py <filePath>
 ```
 That the parallel execution of all anonymization settings for the algorithm specified in <algorithmName>. Please note, that this starts 25 processes at the same time. All of them potentially need intensive computional resources. Therefore, we recommend only executing these scripts on a powerful server.
-
+ 
+The evaluation metrics can be derived by running the the following scripts:
+```
+python getResultsJournalExtension_<evaluation_metric>.py <dirPath> <dataset> 
+```
 
   
 ## How to contact us
