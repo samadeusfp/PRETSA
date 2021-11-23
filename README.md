@@ -121,3 +121,7 @@ python getResultsJournalExtension_<evaluation_metric>.py <dirPath> <dataset>
   
 ## How to contact us
 PRETSA was developed at the Process-driven Architecture group of Humboldt-Universität zu Berlin. If you want to contact us, just send us a mail at: fahrenks || hu-berlin.de
+  
+## Find out more about our research
+If you wamt find out more about our research, you can visit the following website: 
+https://sites.google.com/view/sfahrenkrog-petersen/start
