@@ -13,15 +13,10 @@ We did run our algorithm only with Python 3, so we can not guarantee that it wor
 ## How to repeat our experiments
 
 
-Please consider that your original event log must contain at least the following attributes(column names), so that PRETSA can process it:
+Please consider that your original event log must contain at least the following attributes(column names), so that the anonymizatiuon algorithms can process it:
 - Case Id
 - Activity
 - Duration
-
-If you want to use different attribute column names you can change the following variables in *pretsa.py*:
-- caseIDColName
-- activityColName
-- annotationColName
 
 We will describe in this section how we conducted our experiments for our journal submission:
 ```
