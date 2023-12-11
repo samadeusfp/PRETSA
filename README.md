@@ -1,27 +1,25 @@
-# PRETSA (Standard-Version/Conference Paper)
-PRETSA (PREfix-Tree based event log SAnitisation for t-closeness) is an algorithm to generate privatizied event logs that comply with k-anonymity and t-closeness. These event logs can be used for process discovery a subfield of Process Mining. We provide an implementation of PRETSA in Python 3. Our code is available under the MIT license. If you use it for academic purposes please cite our paper:
+# PRETSA-Algorithm Family
+In this repository we provide the implementations for the PRETSA-algorithm-family. They provide algorithms to generate privatizied event logs that comply with k-anonymity and t-closeness. These event logs can be used for Process Mining. We provide an implementation of PRETSA in Python 3. Our code is available under the MIT license. If you use it for academic purposes please cite our paper:
 ```
-@inproceedings{DBLP:conf/icpm/Fahrenkrog-Petersen19,
-  author    = {Stephan A. Fahrenkrog{-}Petersen and
-               Han van der Aa and
-               Matthias Weidlich},
-  title     = {{PRETSA:} Event Log Sanitization for Privacy-aware Process Discovery},
-  booktitle = {International Conference on Process Mining, {ICPM} 2019, Aachen, Germany,
-               June 24-26, 2019},
-  pages     = {1--8},
-  year      = {2019},
-  crossref  = {DBLP:conf/icpm/2019},
-  url       = {https://doi.org/10.1109/ICPM.2019.00012},
-  doi       = {10.1109/ICPM.2019.00012},
-  timestamp = {Mon, 12 Aug 2019 11:00:01 +0200},
-  biburl    = {https://dblp.org/rec/bib/conf/icpm/Fahrenkrog-Petersen19},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
+@article{DBLP:journals/dke/FahrenkrogPetersenAW23,
+  author       = {Stephan A. Fahrenkrog{-}Petersen and
+                  Han van der Aa and
+                  Matthias Weidlich},
+  title        = {Optimal event log sanitization for privacy-preserving process mining},
+  journal      = {Data Knowl. Eng.},
+  volume       = {145},
+  pages        = {102175},
+  year         = {2023},
+  url          = {https://doi.org/10.1016/j.datak.2023.102175},
+  doi          = {10.1016/J.DATAK.2023.102175},
+  timestamp    = {Sun, 25 Jun 2023 22:03:53 +0200},
+  biburl       = {https://dblp.org/rec/journals/dke/FahrenkrogPetersenAW23.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
 }
 ```
 You can access the corresponding research paper here:
-https://www.researchgate.net/publication/332173989_PRETSA_Event_Log_Sanitization_for_Privacy-aware_Process_Discovery
-
-More info on the journal extension you can find below.
+https://doi.org/10.1016/j.datak.2023.102175
 
 ## Requirements
 To run our algorithm you need the following Python packages:
