@@ -115,7 +115,8 @@ The evaluation metrics can be derived by running the the following scripts:
 ```
 python getResultsJournalExtension_<evaluation_metric>.py <dirPath> <dataset> 
 ```
-
+## How to repeat our experiments
+Baselogs.zip contains the dataset we used for our experiment. These logs do not fall under the MIT Licence (since we did not have ownership of the original data) and are still under there previously used license.
   
 ## How to contact us
 PRETSA was developed at the Process-driven Architecture group of Humboldt-Universität zu Berlin. If you want to contact us, just send us a mail at: fahrenks || hu-berlin.de
