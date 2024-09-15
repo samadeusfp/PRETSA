@@ -1,5 +1,5 @@
 # PRETSA-Algorithm Family
-In this repository we provide the implementations for the PRETSA-algorithm-family. They provide algorithms to generate privatizied event logs that comply with k-anonymity and t-closeness. These event logs can be used for Process Mining. We provide an implementation of PRETSA in Python 3. Our code is available under the MIT license. If you use it for academic purposes please cite our paper:
+In this repository we provide the implementations for the PRETSA-algorithm-family. They provide algorithms to generate privatizied event logs that comply with k-anonymity and t-closeness. These event logs can be used for Process Mining. We provide an implementation of PRETSA in Python 3. Our code is available under the MIT license. Note, the MIT license is just for the source-code and not for the datasets in baselog.zip. If you use it for academic purposes please cite our paper:
 ```
 @article{DBLP:journals/dke/FahrenkrogPetersenAW23,
   author       = {Stephan A. Fahrenkrog{-}Petersen and
